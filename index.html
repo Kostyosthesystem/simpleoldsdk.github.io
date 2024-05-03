@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android SDK Download</title>
+<style>
+    /* Стили для кнопки */
+    .aero-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #E5E5E5; /* Цвет фона кнопки */
+        color: #000; /* Цвет текста */
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        text-decoration: none;
+        border: 1px solid #838383; /* Цвет рамки */
+        border-radius: 3px; /* Закругление углов */
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); /* Тень */
+        transition: background-color 0.3s ease; /* Плавные изменения */
+        margin-top: 20px; /* Отступ сверху */
+    }
+    
+    /* При наведении */
+    .aero-button:hover {
+        background: #D5D5D5;
+    }
+    
+    /* При нажатии */
+    .aero-button:active {
+        background: #C5C5C5;
+        box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Стили для контейнера с текстом */
+    .sdk-info {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: justify;
+    }
+    
+    /* Стили для изображения */
+    .sdk-image {
+        display: block;
+        margin: 20px auto 0; /* Отступ сверху, но без отступа снизу */
+        max-width: 200px;
+    }
+
+    /* Стили для текста соглашения */
+    .terms-text {
+        display: none; /* По умолчанию скрыто */
+    }
+
+    /* Стили для чекбокса */
+    .terms-checkbox {
+        margin-right: 10px;
+    }
+
+    /* Стили для кнопки "Show Terms and Conditions" */
+    .show-terms-active {
+        pointer-events: auto; /* Включение событий мыши */
+        opacity: 1; /* Полная видимость */
+    }
+
+    /* Стили для текста "SYSTEM REQUIREMENTS" */
+    .requirements-text {
+        display: none; /* По умолчанию скрыто */
+    }
+
+    /* Стили для активной кнопки "SYSTEM REQUIREMENTS" */
+    .show-requirements-active {
+        pointer-events: auto; /* Включение событий мыши */
+        opacity: 1; /* Полная видимость */
+    }
+
+    /* Стили для логотипа */
+    .android-logo {
+        display: block;
+        margin: 20px auto; /* Отступ сверху и снизу, автоматический отступ по бокам */
+        max-width: 200px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Изображение Android -->
+<img src="Android_robot.svg.png" alt="Android Logo" class="android-logo">
+
+<div class="sdk-info">
+    <p>The Android SDK provides you the API libraries and developer tools necessary to build, test, and debug apps for Android.</p>
+    <p>If you're a new Android developer, we recommend you download the ADT Bundle to quickly start developing apps. It includes the essential Android SDK components and a version of the Eclipse IDE with built-in ADT (Android Developer Tools) to streamline your Android app development.</p>
+    <p>With a single download, the ADT Bundle includes everything you need to begin developing apps:</p>
+    <ul>
+        <li>Eclipse + ADT plugin</li>
+        <li>Android SDK Tools</li>
+        <li>Android Platform-tools</li>
+        <li>The latest Android platform</li>
+        <li>The latest Android system image for the emulator</li>
+    </ul>
+</div>
+
+<!-- Форма соглашения -->
+<div class="terms-text">
+    <p>This is the Android Software Development Kit License Agreement</p>
+    <!-- Вставьте текст лицензионного соглашения сюда -->
+</div>
+
+<input type="checkbox" class="terms-checkbox" id="terms-checkbox">
+<label for="terms-checkbox">I agree to the Terms and Conditions</label><br>
+
+<button class="aero-button show-terms-active" onclick="showTerms()">Show Terms and Conditions</button>
+
+<!-- Кнопка для скачивания SDK для Windows -->
+<button class="aero-button" onclick="downloadSDK('windows')">Download SDK for Windows</button>
+
+<!-- Кнопка для скачивания SDK для Mac -->
+<button class="aero-button" onclick="downloadSDK('mac')">Download SDK for Mac</button>
+
+<!-- Скрипт для отображения текста соглашения -->
+<script>
+    function showTerms() {
+        var termsText = document.querySelector('.terms-text');
+        termsText.style.display = 'block';
+        // Деактивация кнопки "Show Terms and Conditions"
+        var showTermsButton = document.querySelector('.show-terms-active');
+        showTermsButton.style.pointerEvents = 'none';
+        showTermsButton.style.opacity = '0.5';
+    }
+
+    // Функция для скачивания SDK в зависимости от выбранной системы
+    function downloadSDK(system) {
+        var downloadLink = '';
+        if (system === 'windows') {
+            downloadLink = 'adt-bundle-windows-x86-20130729.zip';
+        } else if (system === 'mac') {
+            downloadLink = 'android-sdk-22-6-3-en-mac.zip';
+        }
+        window.location.href = downloadLink;
+    }
+</script>
+
+</body>
+</html>
